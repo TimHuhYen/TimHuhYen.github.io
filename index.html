@@ -6,43 +6,56 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <div class="sky"></div>
+        <div class="sky">sky</div>
+
+
+
+        <script>
+            window.addEventListener("scroll", () => {
+            const yOffset = window.scrollY;
+            document.querySelector(".sky").style.backgroundPosition = `center ${0 - yOffset * 0.1}px`;
+            });
+    </script>
+
         <header>
             <nav>
-                <ul>
-                    <div class="left-links">   
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="locations.html">Apply</a></li>
-                    </div>
+            <ul class="nav">
+                <li class="left"><a href="index.html">Home</a></li>
+                <li class="left"><a href="locations.html">Apply</a></li>
 
-                    <div class="right-links">
-                    <li><a href="contact.html">Location</a></li>
-                    <li><a href="FAQ.html">FAQ</a></li>  
-                    </div>
-                    
-                    <li class="logo"><a href="index.html">Kean University Logo</a></li>
-           
-                </ul>
+                <li class="logo"><a href="index.html">Kean University Logo</a></li>
 
-
+                <li class="right"><a href="contact.html">Location</a></li>
+                <li class="right"><a href="FAQ.html">FAQ</a></li>
+            </ul>
             </nav>
+
+
                 <h2><span>THIS IS THE HEADER</span></h2>
                 <p class="SIGMA">
                     <div>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam fuga adipisci unde! Ratione laboriosam neque vero beatae quibusdam consequatur eius aut architecto nulla quia, similique dolor tempore nostrum modi exercitationem.
+                    <br>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores porro impedit ab cupiditate quo mollitia corrupti quod consectetur nobis! Molestiae in asperiores vero aspernatur cupiditate corrupti, alias iste? Fugiat, reiciendis.
                     </div>
                 </p>
         </header> 
 
 
-        <section>
-            <!-- Flex boxes and division with grid lay out at the bottom-->
-            <div class="top-opt">a</div>
-            <div>b</div>
-            <div>c</div>
 
 
-        </section>
+        <main>
+            <section class="page-ext">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos dicta ut necessitatibus consectetur ducimus? Totam sapiente enim, earum animi expedita voluptate impedit asperiores? Quam porro, in quidem rem fugiat veritatis?</section>
+            <div class="page-ext">Block A</div>
+
+            <section class="page-ext">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In molestiae voluptatum iste perspiciatis quis dolor unde veritatis, perferendis saepe, et, repellendus fuga deserunt quo aliquam esse accusantium! Eum, omnis at?</section>
+            <div class="page-ext">Block B</div>
+
+            <section class="page-ext">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur corrupti temporibus dolor, eaque nam nemo sapiente dolorem nisi doloremque, ipsam perspiciatis optio delectus? Cumque ipsum aut facilis reprehenderit eligendi sed?
+            </section>
+            <div class="page-ext">Block C</div>
+
+        </main>
 
     </body>
 

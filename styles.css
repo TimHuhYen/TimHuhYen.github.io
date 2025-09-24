@@ -1,16 +1,100 @@
+.sky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+    
+    
+    background-image: url("images/skies.png");
+    background-position: center bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    
+    animation-name: panUp;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    will-change: background-position;
+
+}
+
+/* Intro overlay */
+.intro {
+  position: fixed; inset: 0;
+  display: grid; place-items: center;
+  background: #0b0f17; /* dark backdrop */
+  color: #fff;
+  z-index: 9999;
+  overflow: hidden;
+}
+.intro.hidden { display: none; }
+
+.phrase {
+  display: flex; gap: 0.6rem;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-size: clamp(2rem, 6vw, 5rem);
+  font-weight: 800;
+  letter-spacing: .02em;
+  will-change: transform, opacity;
+}
+.word {
+  display: inline-block;
+  opacity: 0; transform: translateY(24px);
+  animation: fadeUp .8s ease forwards, bob 3.6s ease-in-out infinite;
+}
+/* stagger */
+.word:nth-child(1){ animation-delay: .05s, 0s; }
+.word:nth-child(2){ animation-delay: .15s, .3s; }
+.word:nth-child(3){ animation-delay: .25s, .6s; }
+.word:nth-child(4){ animation-delay: .35s, .9s; }
+
+/* exit */
+.fly .phrase { animation: flyUp .9s cubic-bezier(.2,.8,.2,1) forwards; }
+
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes bob { 0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)} }
+@keyframes flyUp { to { transform: translateY(-110vh); opacity: 0; } }
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .word, .phrase { animation: none !important; opacity: 1 !important; transform: none !important; }
+}
+
+
+/*
+@keyframes panUp {
+  from { background-position: center bottom; }
+  to   { background-position: center top; }
+}
+
+@keyframes scrollUp{
+    from { background-position: center 0;}
+    to   { background-position: center -100%;}
+}
+
+@media (prefers-reduced-motion: reduce){
+    .sky-tiling{ animation: none;   }
+}
+*/
+
 body {
-    background-color: rgb(50, 50, 50);
+    background-color: black;
     color: white;
     font-family: Helvetica Neue, Helvetica, Arial;
     margin: 0;
-    padding: 0;
 }
 
 header {
-    background-color: grey;
-    padding: 20px;
-    height: 150px;
+  background-color: transparent; /* no grey background */
+  height: 150px;
+  position: relative;
+  z-index: 1; /* sits above the .sky */
 }
+
 
 header a {
     color: white;
@@ -25,7 +109,7 @@ header a {
 }
 
 header .logo a {
-    background-image: url("images/logo.png");
+    background-image: url("images/logo.png") ;
     background-size: 300px;
     background-repeat: no-repeat;
     display: inline-block;
@@ -36,7 +120,7 @@ header .logo a {
     width: 300px;   
 }
 
-section {
+.test-section {
     background-color: white;
     color: gray;
     padding: 20px;
@@ -60,6 +144,8 @@ div {
 /*
     TODO: Change this later we can have this be on the same div but split side left/right
 */
+
+
 .left-links{
     margin-left: none;
 }
@@ -68,12 +154,8 @@ div {
     margin-right: 100px;
 }
 
-.sky{
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background: url("images/sky_nostars.png") center bottom / cover no-repeat;
-    animation: panUp 20s linear infinite alternate;;
+.page-ext{
+    height: 100vh;
 }
 
 footer {
@@ -86,6 +168,29 @@ ul {
     margin: 0;
     list-style-type: none;
 }
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; 
+}
+
+.nav .left {
+  margin-right: 20px;
+}
+
+.nav .right {
+  margin-left: 20px;
+}
+
+.nav .logo {
+  margin: 0 auto; 
+}
+
+
+
+
+
 
 li {
     display: inline-block;
