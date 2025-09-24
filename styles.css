@@ -22,18 +22,35 @@
 
 }
 
-/* Intro overlay */
-.intro {
+
+
+
+
+
+
+
+
+
+
+/* Overlay fades in smoothly instead of snapping */
+.intro{
   position: fixed; inset: 0;
   display: grid; place-items: center;
-  background: #0b0f17; /* dark backdrop */
+  background: #0b0f17;
   color: #fff;
   z-index: 9999;
   overflow: hidden;
-}
-.intro.hidden { display: none; }
 
-.phrase {
+  opacity: 0;            /* start invisible but in-flow */
+  pointer-events: none;
+  transition: opacity .35s ease; /* smooth fade-in */
+}
+.intro.show{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.phrase{
   display: flex; gap: 0.6rem;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   font-size: clamp(2rem, 6vw, 5rem);
@@ -41,28 +58,59 @@
   letter-spacing: .02em;
   will-change: transform, opacity;
 }
-.word {
-  display: inline-block;
-  opacity: 0; transform: translateY(24px);
-  animation: fadeUp .8s ease forwards, bob 3.6s ease-in-out infinite;
-}
-/* stagger */
-.word:nth-child(1){ animation-delay: .05s, 0s; }
-.word:nth-child(2){ animation-delay: .15s, .3s; }
-.word:nth-child(3){ animation-delay: .25s, .6s; }
-.word:nth-child(4){ animation-delay: .35s, .9s; }
 
-/* exit */
-.fly .phrase { animation: flyUp .9s cubic-bezier(.2,.8,.2,1) forwards; }
+/* Words: animations are PAUSED initially so nothing snaps */
+.word{
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUp .8s ease both, bob 3.6s ease-in-out infinite;
+  animation-play-state: paused, paused;
+}
+
+/* Stagger phases + custom exit delays via CSS vars */
+.word:nth-child(1){ --delay: .00s; animation-delay: .05s, 0s; }
+.word:nth-child(2){ --delay: .07s; animation-delay: .15s, .3s; }
+.word:nth-child(3){ --delay: .14s; animation-delay: .25s, .6s; }
+.word:nth-child(4){ --delay: .21s; animation-delay: .35s, .9s; }
+
+/* When we toggle .animate, the words start their own animations independently */
+.intro.animate .word{
+  animation-play-state: running, running;
+}
+
+/* Exit: each word flies up with its own delay for a cascading feel */
+.intro.fly .word{
+  animation: wordFlyUp .9s cubic-bezier(.2,.8,.2,1) forwards;
+  animation-delay: var(--delay);
+}
 
 @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 @keyframes bob { 0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)} }
-@keyframes flyUp { to { transform: translateY(-110vh); opacity: 0; } }
+@keyframes wordFlyUp { to { transform: translateY(-110vh); opacity: 0; } }
 
 /* reduced motion */
 @media (prefers-reduced-motion: reduce){
   .word, .phrase { animation: none !important; opacity: 1 !important; transform: none !important; }
+  .intro { transition: none !important; }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*

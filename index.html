@@ -6,16 +6,96 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <div class="sky">sky</div>
+        <div class="sky">
+            sky
+        </div>
 
 
 
-        <script>
-            window.addEventListener("scroll", () => {
-            const yOffset = window.scrollY;
-            document.querySelector(".sky").style.backgroundPosition = `center ${0 - yOffset * 0.1}px`;
-            });
-    </script>
+
+
+        <!-- Intro overlay -->
+<!-- Intro overlay -->
+<div id="intro" class="intro" aria-live="polite" aria-label="Intro animation">
+  <div class="phrase">
+    <span class="word">Kean</span>
+    <span class="word">U</span>
+    <span class="word">Hack</span>
+    <span class="word">This</span>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// parallax
+window.addEventListener("scroll", () => {
+  const yOffset = window.scrollY;
+  document.querySelector(".sky").style.backgroundPosition =
+    `center ${0 - yOffset * 0.1}px`;
+});
+
+// intro overlay
+window.addEventListener('load', () => {
+  const intro = document.getElementById('intro');
+  if (!intro) return;
+
+  // 1) Fade in overlay
+  intro.classList.add('show');
+
+  // 2) Once the fade-in finishes, start per-word animations (no snap)
+  const startWords = () => intro.classList.add('animate');
+  if (getComputedStyle(intro).transitionDuration !== '0s') {
+    intro.addEventListener('transitionend', startWords, { once:true });
+  } else {
+    startWords();
+  }
+
+  // 3) Exit after a beat (or earlier on interaction)
+  const BOB_MS = 2600; // let them bob
+  const EXIT_MS = 900; // matches wordFlyUp duration
+
+  const startExit = () => {
+    intro.classList.add('fly'); // words exit with staggered delays
+    setTimeout(() => intro.remove(), EXIT_MS + 250); // small pad after last word
+  };
+
+  const t = setTimeout(startExit, BOB_MS);
+  ['click','keydown','scroll','touchstart'].forEach(ev =>
+    window.addEventListener(ev, () => { clearTimeout(t); startExit(); }, { once:true })
+  );
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <header>
             <nav>
@@ -32,13 +112,13 @@
 
 
                 <h2><span>THIS IS THE HEADER</span></h2>
-                <p class="SIGMA">
+                <div class="SIGMA">
                     <div>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam fuga adipisci unde! Ratione laboriosam neque vero beatae quibusdam consequatur eius aut architecto nulla quia, similique dolor tempore nostrum modi exercitationem.
                     <br>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores porro impedit ab cupiditate quo mollitia corrupti quod consectetur nobis! Molestiae in asperiores vero aspernatur cupiditate corrupti, alias iste? Fugiat, reiciendis.
                     </div>
-                </p>
+                </div>
         </header> 
 
 
