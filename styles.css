@@ -123,6 +123,13 @@
 }
 */
 
+html, body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border;
+}
+
 body {
     background-color: black;
     color: white;
@@ -132,8 +139,9 @@ body {
 
 header {
   background-color: transparent;
+  border: red 2px solid;
   height: 150px;
-  vw-width: 100%;
+  width: 100vw;
 }
 
 
