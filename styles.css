@@ -133,8 +133,7 @@ body {
 header {
   background-color: transparent;
   height: 150px;
-  position: relative;
-  z-index: 1;
+  vw-width: 100%;
 }
 
 
@@ -145,7 +144,7 @@ header a {
     margin-top: 40px;
 }
 
-
+/*
 header .logo a {
     background-image: url("images/logo.png") ;
     background-size: 300px;
@@ -157,6 +156,7 @@ header .logo a {
     text-indent: -99999px;
     width: 300px;   
 }
+    */
 
 .test-section {
     background-color: white;
@@ -194,6 +194,7 @@ div {
 
 .page-ext{
     height: 100vh;
+    color: red;
 }
 
 footer {
@@ -201,11 +202,21 @@ footer {
     padding: 10px 20px;
 }
 
-
-
 #main-nav{
+  list-style: none;
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
+}
+
+
+#main-nav .left a{
+  color: red;
+  margin-right:20px;
+}
+
+#main-nav .right a{
+  color: blue;
 }
 
 
