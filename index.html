@@ -41,22 +41,18 @@
 
 
 <script>
-// parallax
 window.addEventListener("scroll", () => {
   const yOffset = window.scrollY;
   document.querySelector(".sky").style.backgroundPosition =
     `center ${0 - yOffset * 0.1}px`;
 });
 
-// intro overlay
 window.addEventListener('load', () => {
   const intro = document.getElementById('intro');
   if (!intro) return;
 
-  // 1) Fade in overlay
   intro.classList.add('show');
 
-  // 2) Once the fade-in finishes, start per-word animations (no snap)
   const startWords = () => intro.classList.add('animate');
   if (getComputedStyle(intro).transitionDuration !== '0s') {
     intro.addEventListener('transitionend', startWords, { once:true });
@@ -64,13 +60,12 @@ window.addEventListener('load', () => {
     startWords();
   }
 
-  // 3) Exit after a beat (or earlier on interaction)
-  const BOB_MS = 2600; // let them bob
-  const EXIT_MS = 900; // matches wordFlyUp duration
+  const BOB_MS = 2600;
+  const EXIT_MS = 900;
 
   const startExit = () => {
-    intro.classList.add('fly'); // words exit with staggered delays
-    setTimeout(() => intro.remove(), EXIT_MS + 250); // small pad after last word
+    intro.classList.add('fly');
+    setTimeout(() => intro.remove(), EXIT_MS + 250);
   };
 
   const t = setTimeout(startExit, BOB_MS);
