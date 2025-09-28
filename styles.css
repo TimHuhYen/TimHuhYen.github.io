@@ -145,10 +145,6 @@ header a {
     margin-top: 40px;
 }
 
-.logo {
-    display: flex;
-    justify-content: center;
-}
 
 header .logo a {
     background-image: url("images/logo.png") ;
@@ -205,40 +201,13 @@ footer {
     padding: 10px 20px;
 }
 
-ul {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-}
 
-.nav {
+
+#main-nav{
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start; 
+  justify-content: space-evenly;
 }
 
-.nav .left {
-  margin-right: 20px;
-}
-
-.nav .right {
-  margin-left: 20px;
-}
-
-.nav .logo {
-  margin: 0 auto; 
-}
-
-
-
-
-
-
-li {
-    display: inline-block;
-    margin-right: 20px;
-    color: white;
-}
 
 a{
     text-decoration: none;
