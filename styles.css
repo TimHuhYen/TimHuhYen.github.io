@@ -242,7 +242,7 @@ header {
   100% { opacity: 1; transform: translateY(0); }      
 }
 
-.title-effect .wrd-effect.landed:hover{
+.landed:hover{
   animation: hoverBounce 0.6s ease;
 }
 
