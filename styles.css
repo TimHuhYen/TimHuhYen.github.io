@@ -145,9 +145,11 @@ header {
   border: 2px solid red;
   height: 300px;
   width: 100;
+  box-sizing: border-box;
 }
 
 #main-nav{
+  box-sizing: content-box;
   list-style: none;
   display: flex;
   margin-top: 20;
@@ -160,7 +162,7 @@ header {
 #main-nav img{
   opacity: 0;
   animation: fadeIn 3s forwards;
-  animation-delay: 3s
+  animation-delay: 3.5s
 }
 
 @keyframes fadeIn{
@@ -170,18 +172,35 @@ header {
 }
 
 
-#main-nav .left a{
+#main-nav .left {
   margin-right: 40px;
 }
 
-#main-nav .right a{
+#main-nav .right {
   margin-left: 40px;
 }
 
-header a {
+#main-nav .guides{
+  background-color: #004687; 
+  border: 2px #003153 solid;
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  height: 20px;
+}
+
+#main-nav a {
+    border: 2px red solid;
     color: white;
+    font-size: 15px;
     text-decoration: none;
     text-transform: uppercase;
+}
+
+#main-nav a:hover{
+  text-decoration: underline;
 }
 
 /*
@@ -242,14 +261,3 @@ footer {
     padding: 10px 20px;
 }
 
-
-
-
-
-a{
-    text-decoration: none;
-}
-
-a:hover{
-    text-decoration: underline;
-}
