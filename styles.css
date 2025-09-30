@@ -130,7 +130,6 @@ html, body{
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    box-sizing: border;
 }
 
 /*
@@ -142,7 +141,6 @@ body {
 */
 header {
   background: linear-gradient(90deg, #1e3a8a, #3498db);
-  border: 2px solid red;
   height: 300px;
   width: 100;
   box-sizing: border-box;
@@ -152,17 +150,22 @@ header {
   box-sizing: content-box;
   list-style: none;
   display: flex;
-  margin-top: 20;
-  padding: 0;
+  margin: 0;
+  padding: 20px;
   flex-direction: row;
   justify-content: space-evenly;
   color: white;
 }
 
-#main-nav img{
+#main-nav a img{
   opacity: 0;
   animation: fadeIn 3s forwards;
-  animation-delay: 3.5s
+  animation-delay: 3.5s;
+  transition: transfrom 0.6s ease;
+}
+
+#main-nav a img:hover{
+  transform: scale(1.1);
 }
 
 @keyframes fadeIn{
@@ -189,18 +192,19 @@ header {
   display: flex;
   align-items: center;
   height: 20px;
+  transition: transform 0.6s ease;
+}
+
+#main-nav .guides:hover{
+  transform: scale(1.1);
+  background-color: #007FFF;
 }
 
 #main-nav a {
-    border: 2px red solid;
     color: white;
     font-size: 15px;
     text-decoration: none;
     text-transform: uppercase;
-}
-
-#main-nav a:hover{
-  text-decoration: underline;
 }
 
 /*
