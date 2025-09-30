@@ -160,7 +160,7 @@ header {
 #main-nav a img{
   opacity: 0;
   animation: fadeIn 3s forwards;
-  animation-delay: 3.5s;
+  animation-delay: 4s;
   transition: transfrom 0.6s ease;
 }
 
@@ -206,6 +206,60 @@ header {
     text-decoration: none;
     text-transform: uppercase;
 }
+
+.title-effect{
+  display: flex;
+  justify-content: center;
+}
+
+.wrd-effect{
+  margin-left: 10px;
+  font-size: 60px;
+  color: white;
+}
+
+.title-effect .wrd-effect{
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: drop 0.5s forwards;
+  cursor: pointer;
+}
+
+/* stagger animation delays */
+
+.title-effect .wrd-effect:nth-child(1) { animation-delay: 3.5s}
+.title-effect .wrd-effect:nth-child(2) { animation-delay: 3.9s}
+.title-effect .wrd-effect:nth-child(3) { animation-delay: 4.4s}
+.title-effect .wrd-effect:nth-child(4) { animation-delay: 4.8s}
+
+/* keyframes for drop effect */
+
+@keyframes drop{
+  0%   { opacity: 0; transform: translateY(-50px); }
+  60%  { opacity: 1; transform: translateY(10px); }  
+  80%  { transform: translateY(-5px); }               
+  100% { opacity: 1; transform: translateY(0); }      
+}
+
+.title-effect .wrd-effect.landed:hover{
+  animation: hoverBounce 0.6s ease;
+}
+
+@keyframes hoverBounce{
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-12px); }
+  50%  { transform: translateY(0); }
+  70%  { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.lastwrd-effect{
+  display: block;
+  margin: 0 auto;
+}
+
+
 
 /*
 header .logo a {
