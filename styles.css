@@ -261,8 +261,18 @@ header {
 }
 
 .lastwrd-effect{
+  color: white;
   display: block;
   margin: 0 auto;
+  text-align: center;
+  font-size: 2em;
+}
+
+.date{
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 2px;
 }
 
 
