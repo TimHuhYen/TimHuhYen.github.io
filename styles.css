@@ -135,8 +135,8 @@ html, body{
     cursor: url(/img/casualPaw.png) 4 4, auto !important;
 }
 
-a, span, ul, li, nav, logo{
-  cursor: url(/img/casualPaw.png) 4 4, auto !important;
+span{
+  cursor: url(/img/casualPaw.png) 4 4, auto !important;;
 }
 
 header {
