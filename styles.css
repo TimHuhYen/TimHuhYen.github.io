@@ -131,6 +131,7 @@ html, body{
     padding: 0;
     height: 100%;
     overflow-x: hidden;
+    background: #aee1f9; 
     font-family: Helvetica Neue, Helvetica, Arial;
     cursor: url(/img/casualPaw.png) 4 4, auto !important;
 }
@@ -140,7 +141,6 @@ span{
 }
 
 header {
-  background: linear-gradient(90deg, #1e3a8a, #3498db);
   height: 300px;
   width: 100;
   box-sizing: border-box;
