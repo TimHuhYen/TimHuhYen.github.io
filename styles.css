@@ -131,10 +131,35 @@ html, body{
     padding: 0;
     height: 100%;
     overflow-x: hidden;
-    background: #aee1f9; 
+    background: linear-gradient(#6fb8ff 0%, #aee1f9 100%);
     font-family: Helvetica Neue, Helvetica, Arial;
     cursor: url(/img/casualPaw.png) 4 4, auto !important;
 }
+
+.title-effect {
+  font-family: "DynaPuff", cursive;
+  font-weight: 600;
+  font-size: 4rem;
+  text-align: center;
+  letter-spacing: 0.04em;
+
+  /* pastel gradient fill */
+  background: linear-gradient(90deg, #ffb7f5 0%, #bfe9ff 50%, #ffe8d6 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+
+  /* soft glow */
+  text-shadow: 0 6px 18px rgba(255,200,255,0.35), 0 2px 6px rgba(0,0,0,0.15);
+
+  margin-top: 3rem;
+  transition: transform 1s ease, text-shadow 0.6s ease;
+}
+
+.title-effect:hover {
+  transform: scale(1.05);
+  text-shadow: 0 10px 28px rgba(255,210,255,0.45), 0 4px 14px rgba(0,0,0,0.25);
+}
+
 
 span{
   cursor: url(/img/casualPaw.png) 4 4, auto !important;;
