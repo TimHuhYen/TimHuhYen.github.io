@@ -389,8 +389,10 @@ div {
     color: red;
 }
 
-footer {
-    background-color: black;
-    padding: 10px 20px;
+.footer {
+  border: 2px solid red;
+    height: 150px;
+    color: white;
+    text-align: center;
 }
 
