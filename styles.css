@@ -396,58 +396,36 @@ header {
 
 .cloud-section {
   position: relative;
-  height: 400px; /* adjust */
-  overflow: hidden;
-  background: linear-gradient(to bottom, #0a0a23, #1c1c3c); /* optional background behind clouds */
+  height: 400px; 
+  overflow: visible; 
+  background: linear-gradient(to bottom, #0a0a23, #1c1c3c); 
+
 }
 
 .cloud {
   position: absolute;
-  width: 300px;  /* size of your cloud PNG */
-  height: auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-image: url('/img/hack_cloudzz.png');
-  background-size: contain;
+  width: 60em;   /* bigger clouds */
+  height: 500px;   /* maintain aspect ratio */
+  background-image: url('img/hack_cloudzz.png');
   background-repeat: no-repeat;
-  opacity: 1;
-  transition: transform 1s ease, opacity 1s ease;
+  background-size: contain; /* scale image correctly */
 }
 
-/* Position clouds differently */
-.cloud-1 { top: 30%; left: 30%; }
-.cloud-2 { top: 40%; left: 60%; }
-.cloud-3 { top: 50%; left: 40%; }
-
-/* hidden state when scrolled into view */
-.cloud.hidden {
-  transform: translate(-50%, -50%) translateX(200px); /* slide cloud away */
-  opacity: 0;
-}
-
-.cloud-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 3rem;
-  font-family: 'DynaPuff', cursive;
-  opacity: 0;
-  transition: opacity 1.2s ease 0.5s;
-}
-
-/* show content when clouds are hidden */
-.cloud-section.show-content .cloud-content {
-  opacity: 1;
-}
-
-
+/* Place clouds in a horizontal row, overlapping */
+.cloud-1 { top: -35%; left: -30%; z-index: 3; }
+.cloud-2 { top: -42%; left: 15%; z-index: 2; }
+.cloud-3 { top: -42%; left: 55%; z-index: 1; }
+.cloud-4 { top: -25%; left: -30%; z-index: 3; }
+.cloud-5 { top: -25%; left: 15%; z-index: 3; }
+.cloud-6 { top: -25%; left: 55%; z-index: 3; }
+.cloud-7 { top: 10%; left: -30%; z-index: 3; }
+.cloud-8 { top: 10%; left: 15%; z-index: 3; }
+.cloud-9 { top: 10%; left: 55%; z-index: 5; }
 
 /*CLOUDS SECTION*/
 
 .footer {
+  
   border: 2px solid red;
     height: 350px;
     color: black;

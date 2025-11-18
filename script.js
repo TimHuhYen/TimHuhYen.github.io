@@ -48,24 +48,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-// cloud effect
-
-const cloudSection = document.querySelector('.cloud-section');
-const clouds = document.querySelectorAll('.cloud');
-
-function revealClouds() {
-  const sectionTop = cloudSection.getBoundingClientRect().top;
-  const triggerPoint = window.innerHeight * 0.75; // when 3/4 down screen
-
-  if (sectionTop < triggerPoint) {
-    clouds.forEach(cloud => cloud.classList.add('hidden'));
-    cloudSection.classList.add('show-content');
-  } else {
-    clouds.forEach(cloud => cloud.classList.remove('hidden'));
-    cloudSection.classList.remove('show-content');
-  }
-}
-
-window.addEventListener('scroll', revealClouds);
-
-
