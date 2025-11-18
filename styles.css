@@ -142,10 +142,18 @@ span{
 }
 
 header {
-  height: 300px;
-  width: 100;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 28px;
   box-sizing: border-box;
 }
+
 
 #main-nav{
   box-sizing: content-box;
@@ -158,23 +166,92 @@ header {
   width: 100px;
 }
 
+/* NAV BAR CONTAINER */
+#main-nav {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 25px 40px;
+  align-items: center;
+}
+
+/* NAV ITEMS */
+#main-nav .guides {
+  background: transparent;
+  border: none;
+  padding: 10px 0;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* NAV LINKS */
+#main-nav a {
+  font-family: "DynaPuff", cursive;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+  font-size: 18px;          /* ← increased size */
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* HOVER EFFECT */
+#main-nav .guides:hover a {
+  color: #A7D8FF;
+  text-shadow: 0 0 8px #A7D8FF;
+}
+
+#main-nav .guides:hover {
+  transform: scale(1.05);
+}
+
 .logo{
   display: flex;
   justify-content: flex-end;
-  margin-top: -70px;
   margin-right: 20px;
-}
-
-.divider {
-  width: 100%;
-  height: 2px;      
-  background-color: white;
 }
 
 
 
 /*VIDEO BACKGROUND*/
 
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35);
+  z-index: 1;
+}
+
+/* Make content appear above video */
+.content {
+  position: relative;
+  z-index: 3;
+  color: white;
+  text-align: center;
+  padding-top: 25vh;
+}
 
 
 
@@ -246,34 +323,6 @@ header {
   text-shadow: 0 10px 28px rgba(255,210,255,0.45), 0 4px 14px rgba(0,0,0,0.25);
 }
 
-
-#main-nav .guides{
-  background: linear-gradient(135deg, #004687, #00C6FF);
-  border: 2px #003153 solid;
-  border-radius: 5px;
-  margin-right: 5px;
-  padding: 10px;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  height: 20px;
-  transition: transform 0.6s ease;
-}
-
-#main-nav .guides:hover{
-  transform: scale(1.1);
-  background-color: #007FFF;
-}
-
-#main-nav a {
-  font-family: "DynaPuff", cursive;
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: white;
-  font-size: 7px;
-  text-decoration: none;
-  text-transform: uppercase;
-}
 
 .title-effect{
   display: flex;
@@ -400,7 +449,7 @@ div {
 
 .footer {
   border: 2px solid red;
-    height: 150px;
+    height: 350px;
     color: white;
     text-align: center;
 }
