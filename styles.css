@@ -392,27 +392,60 @@ header {
   margin-top: 2px;
 }
 
-.clouds {
-  width: 100%;
-  height: 300px;              /* adjust based on your PNG height */
-  background-image: url('/img/hackathon_clouds.png'); /* <-- your PNG */
-  background-size: cover;     /* scales nicely */
-  background-repeat: no-repeat;
-  background-position: center top;
+/*CLOUDS SECTION*/
 
+.cloud-section {
   position: relative;
-  z-index: 5;
+  height: 400px; /* adjust */
+  overflow: hidden;
+  background: linear-gradient(to bottom, #0a0a23, #1c1c3c); /* optional background behind clouds */
+}
 
-  /* This pulls the clouds upward to overlap the video */
-  margin-top: -120px;         /* tweak until it overlaps how you like */
+.cloud {
+  position: absolute;
+  width: 300px;  /* size of your cloud PNG */
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url('/img/hack_cloudzz.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 1;
+  transition: transform 1s ease, opacity 1s ease;
+}
 
-  /* Soft fade at the bottom of the clouds */
-  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+/* Position clouds differently */
+.cloud-1 { top: 30%; left: 30%; }
+.cloud-2 { top: 40%; left: 60%; }
+.cloud-3 { top: 50%; left: 40%; }
+
+/* hidden state when scrolled into view */
+.cloud.hidden {
+  transform: translate(-50%, -50%) translateX(200px); /* slide cloud away */
+  opacity: 0;
+}
+
+.cloud-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 3rem;
+  font-family: 'DynaPuff', cursive;
+  opacity: 0;
+  transition: opacity 1.2s ease 0.5s;
+}
+
+/* show content when clouds are hidden */
+.cloud-section.show-content .cloud-content {
+  opacity: 1;
 }
 
 
 
+/*CLOUDS SECTION*/
 
 .footer {
   border: 2px solid red;
