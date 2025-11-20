@@ -395,12 +395,12 @@ header {
 
 .cloud-section {
   position: relative;
-  height: 800px; 
+  height: 1500px; 
   overflow: visible; 
   background: radial-gradient(circle at center, #4b2c7f 0%, #2a1a50 20%, #1c1c3c 60%, #0a0a23 100%)
 }
 
-.cloud {
+.top-cloud {
   position: absolute;
   width: 60em;   /* bigger clouds */
   height: 25em;   /* maintain aspect ratio */
@@ -416,6 +416,23 @@ header {
 .cloud-4 { top: -25px; left: -116px; z-index: 3; }
 .cloud-5 { top: -15px; left: 50px; z-index: 3; }
 .cloud-6 { top: -20px; left: 550px; z-index: 3; }
+
+.btm-cloud{
+  position: absolute;
+  width: 20em;
+  height: 15em;
+  background-image: url('img/hack_cloudzz.png');
+  background-image: no-repeat;
+  background-size: contain;
+}
+
+
+.cloud-7 { top: 820px; left: -150px; z-index: 3; }
+.cloud-8 { top: -20px; left: 550px; z-index: 3; }
+.cloud-9 { top: -20px; left: 550px; z-index: 3; }
+.cloud-10 { top: -20px; left: 550px; z-index: 3; }
+.cloud-11 { top: -20px; left: 550px; z-index: 3; }
+.cloud-12 { top: -20px; left: 550px; z-index: 3; }
 
 .cloud-content{
   text-align: center;
