@@ -218,17 +218,16 @@ header {
 
 .video-container {
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
 }
 
 #bg-video {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   z-index: 0;
 }
@@ -239,7 +238,6 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  
   z-index: 1;
 }
 
@@ -250,6 +248,7 @@ header {
   color: white;
   text-align: center;
   padding-top: 25vh;
+  font-size: 2rem;
 }
 
 
@@ -263,9 +262,9 @@ header {
 .title-effect {
   font-family: "DynaPuff", cursive;
   font-weight: 600;
-  font-size: 4rem;
   text-align: center;
   letter-spacing: 0.04em;
+  
 
   /* pastel gradient fill */
   background: linear-gradient(90deg, #ffb7f5 0%, #bfe9ff 50%, #ffe8d6 100%);
@@ -330,7 +329,7 @@ header {
 
 .wrd-effect{
   margin-left: 10px;
-  font-size: 60px;
+  font-size: 7rem;
   color: white;
 }
 
@@ -395,53 +394,55 @@ header {
 
 .cloud-section {
   position: relative;
-  height: 1500px; 
+  height: 1200px; 
+  width: 100vw;
   overflow: visible; 
   background: radial-gradient(circle at center, #4b2c7f 0%, #2a1a50 20%, #1c1c3c 60%, #0a0a23 100%)
 }
 
 .top-cloud {
   position: absolute;
-  width: 60em;   /* bigger clouds */
-  height: 25em;   /* maintain aspect ratio */
+  width: 70vw;   /* bigger clouds */
+  height: 22vw;   /* maintain aspect ratio */
   background-image: url('img/hack_cloudzz.png');
   background-repeat: no-repeat;
   background-size: contain; /* scale image correctly */
 }
 
 /* Place clouds in a horizontal row, overlapping */
-.cloud-1 { top: -165px; left: -150px; z-index: 3; }
-.cloud-2 { top: -165px; left: 340px; z-index: 2; }
-.cloud-3 { top: -165px; left: 555px; z-index: 1; }
-.cloud-4 { top: -25px; left: -116px; z-index: 3; }
-.cloud-5 { top: -15px; left: 50px; z-index: 3; }
-.cloud-6 { top: -20px; left: 550px; z-index: 3; }
+.cloud-1 { top: -15%; left: -10%; z-index: 2; }
+.cloud-2 { top: -15%; left: 25%; z-index: 2; }
+.cloud-3 { top: -15%; left: 50%; z-index: 2; }
+.cloud-4 { top: -8%; left: -10%; z-index: 1; }
+.cloud-5 { top: -8%; left: 25%; z-index: 1; }
+.cloud-6 { top: -8%; left: 50%; z-index: 1; }
 
 .btm-cloud{
   position: absolute;
-  width: 20em;
-  height: 15em;
+  width: 70vw;
+  height: 22vw;
   background-image: url('img/hack_cloudzz.png');
-  background-image: no-repeat;
+  background-repeat: no-repeat;
   background-size: contain;
 }
 
 
-.cloud-7 { top: 820px; left: -150px; z-index: 3; }
-.cloud-8 { top: -20px; left: 550px; z-index: 3; }
-.cloud-9 { top: -20px; left: 550px; z-index: 3; }
-.cloud-10 { top: -20px; left: 550px; z-index: 3; }
-.cloud-11 { top: -20px; left: 550px; z-index: 3; }
-.cloud-12 { top: -20px; left: 550px; z-index: 3; }
+.cloud-7 { top: 50%; left: -10%; z-index: 1; }
+.cloud-8 { top: 50%; left: 25%; z-index: 1; }
+.cloud-9 { top: 50%; left: 50%; z-index: 1; }
+.cloud-10 { top: 58%; left: -10%; z-index: 2; }
+.cloud-11 { top: 58%; left: 25%; z-index: 2; }
+.cloud-12 { top: 58%; left: 50%; z-index: 2; }
 
 .cloud-content{
   text-align: center;
-  padding-top: 250px;
+  padding-top: 20vh;
   width: 100%;
   font-family: 'DynaPuff', cursive;
   color: white;
   font-size: 5.5rem;
   text-shadow: 0 6px 18px rgba(255,200,255,0.35), 0 2px 6px rgba(0,0,0,0.15);
+  z-index: 3;
 }
 
 .AIeffect{
@@ -458,6 +459,63 @@ header {
 
   
 /*CLOUDS SECTION*/
+
+
+
+/*APPLY SECTION*/
+
+.apply-section {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0a0017; /* dark purple to match your theme */
+}
+
+.apply-btn {
+  display: inline-block;
+  padding: 20px 60px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(90deg, #6a00ff, #b400ff);
+  border-radius: 50px;
+  text-decoration: none;
+  letter-spacing: 2px;
+  transition: 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow animation */
+.apply-btn::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.45), transparent 60%);
+  transform: scale(0);
+  opacity: 0;
+  transition: 0.5s ease;
+}
+
+/* Hover effect */
+.apply-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px #8b2cff, 0 0 50px #8b2cff;
+}
+
+.apply-btn:hover::before {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+
+
+
+/*APPLY SECTION*/
 
 .footer {
   
