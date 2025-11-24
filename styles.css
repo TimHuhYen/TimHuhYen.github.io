@@ -579,12 +579,123 @@ header {
 .track-section {
   position: relative;
   width: 100%;
+  height: 1800px;
+  background-color: #7BAADA;
+  overflow: hidden;
 }
 
-.track-image {
-  width: 100%;
+.objCliff{
+  position: absolute;
+  top: 20vh;
+  left: 0;
+  max-width: 40vw;
   height: auto;
-  display: block;
+  z-index: 3;
+}
+
+.objCloud{
+  position: absolute;
+  top: 10vh;
+  right: 5vw;
+  max-width: 25vw;
+  height: auto;
+  z-index: 4;
+}
+
+.tracks-text {
+  position: absolute;
+  top: 10vh;             
+  left: 50%;             
+  transform: translateX(-50%);  
+  font-family: 'DynaPuff', sans-serif;
+  font-size: 5vw;        
+  color: white;
+  text-align: center;        
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+}
+
+
+/* From Uiverse.io by gharsh11032000 */ 
+.card-container {
+  width: 15vw;       /* responsive width relative to viewport */
+  height: 15vw;      /* keep square ratio */
+  position: absolute; /* allows positioning */
+  top: 60%;          /* vertical placement; adjust as needed */
+  left: 50%;         /* horizontal placement */
+  transform: translateX(-50%); /* center horizontally */
+  border-radius: 10px;
+  z-index: 5;      
+}
+
+.card-container::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(20px);
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.card .img-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+  transition: scale 0.6s, rotate 0.6s, filter 1s;
+}
+
+.card .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+  color: #e8e8e8;
+  padding: 5%;
+  box-sizing: border-box;
+  line-height: 1.2;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(50px);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  overflow: hidden;
+}
+
+.card .content .heading {
+  font-size: 1.5vw;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.card .content p{
+  font-size: 1vw;
+  line-height: 1.4;
+}
+
+.card:hover .content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover .img-content {
+  scale: 1.5;
+  rotate: 15deg;
+  filter: blur(7px);
 }
 
 
