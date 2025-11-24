@@ -573,6 +573,24 @@ header {
 
 /*END OF APPLY SECTION*/
 
+
+/*START OF TRACK SECTION*/
+
+.track-section {
+  position: relative;
+  width: 100%;
+}
+
+.track-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+/*END OF TRACK SECTION*/
+
 .footer {
   
   border: 2px solid red;
