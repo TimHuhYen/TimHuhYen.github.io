@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   
 // Set the date/time of the hackathon
-const eventDate = new Date("April 18, 2026 10:00:00").getTime();
+const eventDate = new Date("April 18, 2026 08:00:00").getTime();
 
 const countdown = setInterval(function() {
   const now = new Date().getTime();
