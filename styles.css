@@ -615,12 +615,14 @@ header {
 }
 
 .allFourcards{
+  position: absolute;
+  top: 60vh;
+  left: 30vw;
   display: grid;
-  grid-template-columns: repeat(2, 15vw);
-  gap: 1vw;
+  grid-template-columns: repeat(2, 18vw);
+  gap: 4vw;
   justify-items: center;
   align-items: center;
-  margin-top: 5vh;
 }
 
 .card-container {  
