@@ -1,47 +1,12 @@
-
-/*
-.sky {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vh;
-  height: 100vh;
-  z-index: -1;
-    
-    
-    background-image: url("images/skies.png");
-    background-position: center bottom;
-    background-size: cover;
-    background-repeat: no-repeat;
-    
-    
-    animation-name: panUp;
-    animation-duration: 20s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    will-change: background-position;
-
-}
-*/
-
-
-
-
-
-
-
-
-
-
+/*first thing user sees---------------------------------------------------*/
 .intro{
-  position: fixed; inset: 0;
+  position: fixed; 
+  inset: 0;
   display: grid; place-items: center;
   background: #0b0f17;
   color: #fff;
   z-index: 9999;
   overflow: hidden;
-
   opacity: 0;
   pointer-events: none;
   transition: opacity .35s ease;
@@ -59,6 +24,122 @@
   letter-spacing: .02em;
   will-change: transform, opacity;
 }
+
+/*html law-------------------------------------------------------------------------*/
+
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow-x: hidden;
+    background: transparent;
+    font-family: Helvetica Neue, Helvetica, Arial;
+    cursor: url(/img/casualPaw.png) 4 4, auto !important;
+}
+
+span{
+  cursor: url(/img/casualPaw.png) 4 4, auto !important;;
+}
+
+/*Video background of first segment of website*/
+
+.video-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+#bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Make content appear above video */
+.content {
+  position: relative;
+  z-index: 3;
+  color: white;
+  text-align: center;
+  padding-top: 25vh;
+  font-size: 1rem;
+}
+
+/*option header & logo------------------------------------------------------------------*/
+
+header {
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 28px;
+  box-sizing: border-box;
+}
+
+#main-nav{ /*options part (apply tracks faq sponsors*/
+  box-sizing: border-box;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin-top: 1vh;
+  padding-left: 1vw;
+  flex-direction: row;
+  color: white;
+  width: 100vw;
+}
+
+/* NAV ITEMS */
+#main-nav .guides {
+  background: transparent;
+  border: none;
+  padding: 10px 0;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* NAV LINKS */
+#main-nav a {
+  font-family: "DynaPuff", cursive;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+  font-size: 0.8rem;          /* ← increased size */
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+/* HOVER EFFECT */
+#main-nav .guides:hover a {
+  color: #A7D8FF;
+  text-shadow: 0 0 8px #A7D8FF;
+}
+
+#main-nav .guides:hover {
+  transform: scale(1.05);
+}
+
+.logo{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1vh;
+}
+
+/*Word effect------------------------------------------------------------------------------------*/
 
 .word{
   display: inline-block;
@@ -93,163 +174,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-@keyframes panUp {
-  from { background-position: center bottom; }
-  to   { background-position: center top; }
-}
-
-@keyframes scrollUp{
-    from { background-position: center 0;}
-    to   { background-position: center -100%;}
-}
-
-@media (prefers-reduced-motion: reduce){
-    .sky-tiling{ animation: none;   }
-}
-*/
-
-
-html, body{
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow-x: hidden;
-    background: transparent;
-    font-family: Helvetica Neue, Helvetica, Arial;
-    cursor: url(/img/casualPaw.png) 4 4, auto !important;
-}
-
-
-span{
-  cursor: url(/img/casualPaw.png) 4 4, auto !important;;
-}
-
-header {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 28px;
-  box-sizing: border-box;
-}
-
-
-#main-nav{
-  box-sizing: content-box;
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 20px;
-  flex-direction: row;
-  color: white;
-  width: 100px;
-}
-
-/* NAV BAR CONTAINER */
-#main-nav {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-  margin: 0;
-  padding: 25px 40px;
-  align-items: center;
-}
-
-/* NAV ITEMS */
-#main-nav .guides {
-  background: transparent;
-  border: none;
-  padding: 10px 0;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-/* NAV LINKS */
-#main-nav a {
-  font-family: "DynaPuff", cursive;
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: white;
-  font-size: 18px;          /* ← increased size */
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-/* HOVER EFFECT */
-#main-nav .guides:hover a {
-  color: #A7D8FF;
-  text-shadow: 0 0 8px #A7D8FF;
-}
-
-#main-nav .guides:hover {
-  transform: scale(1.05);
-}
-
-.logo{
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 20px;
-}
-
-
-
-/*VIDEO BACKGROUND*/
-
-.video-container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-}
-
-#bg-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
-
-.video-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-/* Make content appear above video */
-.content {
-  position: relative;
-  z-index: 3;
-  color: white;
-  text-align: center;
-  padding-top: 25vh;
-  font-size: 2rem;
-}
 
 
 
