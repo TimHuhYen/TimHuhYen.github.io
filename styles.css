@@ -828,3 +828,73 @@ header {
   color: black;
   text-align: center;
 }
+
+/*FAQ SECTION*/
+
+.faq-section {
+  position: relative;
+  width: 100%;
+  /* Minimal height, expands with content */
+  min-height: 80vh;
+  background-color: #7BAADA;
+  /* Continue track section base color or different? using same for continuity, or maybe darker */
+  background: radial-gradient(circle at center, #1c1c3c 0%, #0a0a23 100%);
+  /* Space/Cloud transition */
+  padding: 5vh 5vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.faq-text {
+  font-family: 'DynaPuff', sans-serif;
+  font-size: clamp(3rem, 6vw, 6rem);
+  color: white;
+  text-align: center;
+  text-shadow: 0 6px 18px rgba(255, 200, 255, 0.35), 0 2px 6px rgba(0, 0, 0, 0.15);
+  margin-bottom: 4vh;
+}
+
+.faq-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.1);
+  /* Glassmorphism */
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(167, 216, 255, 0.4);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.faq-question {
+  font-family: 'DynaPuff', cursive;
+  font-weight: 700;
+  color: #A7D8FF;
+  /* Responsive font size */
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  margin-bottom: 0.5rem;
+}
+
+.faq-answer {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #e0e0e0;
+  /* Responsive font size */
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.6;
+}
+
+/*END OF FAQ SECTION*/
