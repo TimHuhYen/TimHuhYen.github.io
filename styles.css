@@ -995,15 +995,27 @@ header {
 .schedule-section {
   position: relative;
   width: 100%;
-  min-height: 80vh;
-  background-color: #0a0a23;
-  /* Dark night sky */
-  padding: 5vh 5vw;
+  min-height: 120vh;
+  background-color: #7BAADA;
+  /* Matching Tracks section */
+  padding: 5vh 5vw 25vh 5vw;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: white;
+  overflow: hidden;
+}
+
+.grass-decoration {
+  position: absolute;
+  bottom: -25vh;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+  min-height: 100px;
 }
 
 .schedule-text {
