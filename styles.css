@@ -474,18 +474,24 @@ header {
 /*CLOUDS SECTION*/
 
 .cloud-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  height: 1200px;
   width: 100vw;
+  height: 5vh;
+  /* Define height for the border section */
   overflow: visible;
-  background: var(--grad-cloud);
+  /* Allow clouds to overflow and create border effect */
+  z-index: 5;
+  /* Ensure clouds appear above both sections */
 }
 
 .top-cloud {
   position: absolute;
-  width: 70vw;
-  /* bigger clouds */
-  height: 22vw;
+  width: 90vw;
+  /* Much larger clouds to fill space */
+  height: 30vw;
   /* maintain aspect ratio */
   background-image: url('img/hack_cloudzz.png');
   background-repeat: no-repeat;
@@ -493,116 +499,10 @@ header {
   /* scale image correctly */
 }
 
-/* Place clouds in a horizontal row, overlapping */
-.cloud-1 {
-  top: -15%;
-  left: -10%;
-  z-index: 2;
-}
+.cloud-1 {left: -25%; z-index: 2;}
+.cloud-2 {left: 30%; z-index: 2;}
 
-.cloud-2 {
-  top: -15%;
-  left: 25%;
-  z-index: 2;
-}
-
-.cloud-3 {
-  top: -15%;
-  left: 50%;
-  z-index: 2;
-}
-
-.cloud-4 {
-  top: -8%;
-  left: -10%;
-  z-index: 1;
-}
-
-.cloud-5 {
-  top: -8%;
-  left: 25%;
-  z-index: 1;
-}
-
-.cloud-6 {
-  top: -8%;
-  left: 50%;
-  z-index: 1;
-}
-
-.btm-cloud {
-  position: absolute;
-  width: 70vw;
-  height: 22vw;
-  background-image: url('img/hack_cloudzz.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-
-.cloud-7 {
-  top: 73%;
-  left: -10%;
-  z-index: 2;
-}
-
-.cloud-8 {
-  top: 73%;
-  left: 25%;
-  z-index: 2;
-}
-
-.cloud-9 {
-  top: 73%;
-  left: 50%;
-  z-index: 2;
-}
-
-.cloud-10 {
-  top: 64%;
-  left: -10%;
-  z-index: 2;
-}
-
-.cloud-11 {
-  top: 64%;
-  left: 25%;
-  z-index: 2;
-}
-
-.cloud-12 {
-  top: 64%;
-  left: 50%;
-  z-index: 2;
-}
-
-.cloud-content {
-  text-align: center;
-  padding-top: 20vh;
-  width: 100%;
-  font-family: 'DynaPuff', cursive;
-  color: white;
-  font-size: 5.5rem;
-  text-shadow: 0 6px 18px rgba(255, 200, 255, 0.35), 0 2px 6px rgba(0, 0, 0, 0.15);
-  z-index: 3;
-}
-
-.AIeffect {
-  display: block;
-  text-shadow: 0 6px 18px rgba(255, 200, 255, 0.35), 0 2px 6px rgba(0, 0, 0, 0.15);
-  transition: transform 1s ease, text-shadow 0.6s ease;
-}
-
-.AIeffect:hover {
-  transform: scale(1.09);
-  color: yellow;
-  text-shadow: 0 10px 28px rgba(255, 210, 255, 0.45), 0 4px 14px rgba(0, 0, 0, 0.25);
-}
-
-
-/*CLOUDS SECTION*/
-
-
+/*END OF CLOUDS SECTION*/
 
 /*APPLY SECTION*/
 
@@ -653,7 +553,7 @@ header {
 /* Apply button styles */
 .apply-btn {
   position: relative;
-  z-index: 2;
+  z-index: 10;
   display: inline-block;
   padding: 20px 60px;
   font-size: 2rem;
