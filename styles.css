@@ -1,16 +1,51 @@
+:root {
+  /* Colors */
+  --color-bg-dark: #0b0f17;
+  --color-bg-deep: #0a0a23;
+  --color-primary: #8b2cff;
+  --color-secondary: #b400ff;
+  --color-accent: #A7D8FF;
+  --color-text-main: #ffffff;
+  --color-text-muted: #e0e0e0;
+
+  /* Gradients */
+  --grad-primary: linear-gradient(90deg, #6a00ff, #b400ff);
+  --grad-pastel: linear-gradient(90deg, #ffb7f5 0%, #bfe9ff 50%, #ffe8d6 100%);
+  --grad-cloud: radial-gradient(circle at center, #4b2c7f 0%, #2a1a50 20%, #1c1c3c 60%, #0a0a23 100%);
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-blur: blur(12px);
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+
+  /* Shadows */
+  --shadow-glow: 0 0 25px var(--color-primary), 0 0 50px var(--color-primary);
+  --shadow-soft: 0 6px 18px rgba(0, 0, 0, 0.2);
+
+  /* Transitions */
+  --trans-smooth: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --trans-bounce: 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
 /*first thing user sees---------------------------------------------------*/
 .intro {
   position: fixed;
   inset: 0;
   display: grid;
   place-items: center;
-  background: #0b0f17;
-  color: #fff;
+  background: var(--color-bg-dark);
+  color: var(--color-text-main);
   z-index: 9999;
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
-  transition: opacity .35s ease;
+  transition: opacity var(--trans-smooth);
 }
 
 .intro.show {
@@ -21,7 +56,7 @@
 .phrase {
   display: flex;
   gap: 0.6rem;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-family: inherit;
   font-size: clamp(2rem, 6vw, 5rem);
   font-weight: 800;
   letter-spacing: .02em;
@@ -37,8 +72,9 @@ body {
   height: 100vh;
   overflow-x: hidden;
   background: transparent;
-  font-family: Helvetica Neue, Helvetica, Arial;
+  font-family: "DynaPuff", Helvetica Neue, Helvetica, Arial, sans-serif;
   cursor: url(/img/casualPaw.png) 4 4, auto !important;
+  color: var(--color-text-main);
 }
 
 span {
@@ -101,20 +137,24 @@ header {
   box-sizing: border-box;
   list-style: none;
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   margin-top: 1vh;
-  padding-left: 1vw;
+  padding: 10px 20px;
   flex-direction: row;
-  color: white;
-  width: 100vw;
+  color: var(--color-text-main);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 30px;
+  width: auto;
 }
 
 /* NAV ITEMS */
 #main-nav .guides {
   background: transparent;
   border: none;
-  padding: 10px 0;
-  transition: color 0.3s ease, transform 0.3s ease;
+  padding: 5px 10px;
+  transition: transform var(--trans-smooth);
 }
 
 /* NAV LINKS */
@@ -122,21 +162,21 @@ header {
   font-family: "DynaPuff", cursive;
   font-weight: 600;
   letter-spacing: 1px;
-  color: white;
-  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  color: var(--color-text-main);
+  font-size: clamp(0.9rem, 1.2vw, 1.2rem);
   text-decoration: none;
   text-transform: uppercase;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
+  transition: color var(--trans-smooth), text-shadow var(--trans-smooth);
 }
 
 /* HOVER EFFECT */
 #main-nav .guides:hover a {
-  color: #A7D8FF;
-  text-shadow: 0 0 8px #A7D8FF;
+  color: var(--color-accent);
+  text-shadow: 0 0 10px var(--color-accent);
 }
 
 #main-nav .guides:hover {
-  transform: scale(1.05);
+  transform: translateY(-2px) scale(1.05);
 }
 
 .logo {
@@ -245,7 +285,7 @@ header {
 
 
   /* pastel gradient fill */
-  background: linear-gradient(90deg, #ffb7f5 0%, #bfe9ff 50%, #ffe8d6 100%);
+  background: var(--grad-pastel);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -255,7 +295,7 @@ header {
   text-shadow: 0 6px 18px rgba(255, 200, 255, 0.35), 0 2px 6px rgba(0, 0, 0, 0.15);
 
   margin-top: 0.5rem;
-  transition: transform 1s ease, text-shadow 0.6s ease;
+  transition: transform var(--trans-bounce), text-shadow var(--trans-smooth);
 }
 
 .title-effect:hover {
@@ -425,7 +465,7 @@ header {
   height: 1200px;
   width: 100vw;
   overflow: visible;
-  background: radial-gradient(circle at center, #4b2c7f 0%, #2a1a50 20%, #1c1c3c 60%, #0a0a23 100%)
+  background: var(--grad-cloud);
 }
 
 .top-cloud {
@@ -606,12 +646,17 @@ header {
   font-size: 2rem;
   font-weight: 700;
   color: white;
-  background: linear-gradient(90deg, #6a00ff, #b400ff);
+  background: var(--grad-primary);
   border-radius: 50px;
   text-decoration: none;
   letter-spacing: 2px;
-  transition: 0.4s ease;
+  transition: transform var(--trans-smooth), box-shadow var(--trans-smooth);
   overflow: hidden;
+}
+
+.apply-btn:hover {
+  transform: scale(1.08);
+  box-shadow: var(--shadow-glow);
 }
 
 .apply-btn::before {
@@ -665,15 +710,12 @@ header {
 .apply-transition {
   position: absolute;
   bottom: -1px;
-  /* Prevent hairline gap */
   left: 0;
   width: 100%;
   height: 12vh;
-  /* Long gradient for smooth blend */
   background: linear-gradient(to bottom, transparent, #7BAADA);
   z-index: 2;
   pointer-events: none;
-  /* Let clicks pass through if needed */
 }
 
 /*END OF APPLY SECTION*/
@@ -891,18 +933,17 @@ header {
 }
 
 .faq-item {
-  background: rgba(255, 255, 255, 0.1);
-  /* Glassmorphism */
-  padding: 2rem;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  padding: var(--space-md);
   border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(3px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform var(--trans-smooth), box-shadow var(--trans-smooth), background var(--trans-smooth);
 }
 
 .faq-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(167, 216, 255, 0.4);
+  box-shadow: var(--shadow-soft);
   background: rgba(255, 255, 255, 0.15);
 }
 
@@ -940,10 +981,54 @@ header {
 
 
 .footer {
-  border: 2px solid red;
-  height: 350px;
-  color: black;
+  position: relative;
+  width: 100%;
+  height: 52.67vw;
+  /* Proportional to 2730x1438 image */
+  min-height: 500px;
+  background-image: url('img/Bazaart_EDB63B0A-B3F3-4D88-AFAB-045E29B1BB5B.PNG');
+  background-size: 100% 100%;
+  /* Fill entire container */
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  /* Dark overlay for readability */
+  z-index: 1;
+}
+
+.kean-message {
+  position: relative;
+  z-index: 3;
+  color: white;
+  font-family: 'DynaPuff', cursive;
+  font-size: 1.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  margin: 0;
+}
+
+.sleeping-dog {
+  position: absolute;
+  /* Tucked deeper into the corner, larger size */
+  bottom: 18%;
+  left: 35%;
+  width: 22vw;
+  max-width: 350px;
+  z-index: 2;
+  /* Perspective adjustment for a larger bed closer to the wall */
+  transform: perspective(1000px) rotateX(28deg) rotateY(8deg) rotateZ(-6deg);
+  pointer-events: none;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.45));
 }
 
 
@@ -953,9 +1038,8 @@ header {
   position: relative;
   width: 100%;
   min-height: 60vh;
-  /* Matches the bottom of the FAQs radial gradient */
-  background: #0a0a23;
-  padding: 5vh 5vw;
+  background: var(--color-bg-deep);
+  padding: var(--space-lg) var(--space-md);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -984,30 +1068,30 @@ header {
 .sponsor-item {
   width: 150px;
   height: 150px;
-  background: rgba(255, 206, 250, 0.9);
-  /* Light pinkish white for contrast */
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   border-radius: 50%;
-  /* Make it a circle */
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--trans-bounce), background var(--trans-smooth), box-shadow var(--trans-smooth);
   cursor: pointer;
 }
 
 .sponsor-item span {
   font-family: 'DynaPuff', cursive;
   font-weight: 700;
-  color: #0a0a23;
-  /* Dark text for readability */
+  color: var(--color-text-main);
   font-size: 1.2rem;
 }
 
 .sponsor-item:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
-  background: white;
+  transform: scale(1.15);
+  background: var(--glass-bg);
+  box-shadow: var(--shadow-glow);
+  border-color: var(--color-accent);
 }
 
 /*END OF SPONSORS SECTION*/
@@ -1100,9 +1184,9 @@ header {
 }
 
 .day-btn.active {
-  background: #7BAADA;
-  color: #0a0a23;
-  box-shadow: 0 0 15px rgba(123, 170, 218, 0.4);
+  background: var(--color-accent);
+  color: var(--color-bg-deep);
+  box-shadow: 0 0 15px rgba(167, 216, 255, 0.4);
 }
 
 .day-btn:hover:not(.active) {
@@ -1146,14 +1230,14 @@ header {
 }
 
 .event-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   padding: 2.5rem;
   border-radius: 20px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--trans-smooth), opacity var(--trans-smooth);
   animation: cardEntry 0.5s ease-out;
 }
 
