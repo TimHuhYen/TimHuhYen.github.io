@@ -110,11 +110,18 @@ span {
 
 /* Make content appear above video */
 .content {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 3;
   color: white;
   text-align: center;
-  padding-top: 25vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   font-size: 1rem;
 }
 
@@ -128,7 +135,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 28px;
+  padding: clamp(0.25rem, 1.2vw, 1.5rem) clamp(0.5rem, 2.5vw, 3rem);
   box-sizing: border-box;
 }
 
@@ -137,9 +144,9 @@ header {
   box-sizing: border-box;
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: clamp(0.4rem, 1.5vw, 1.8rem);
   margin-top: 1vh;
-  padding: 10px 20px;
+  padding: clamp(4px, 1vh, 12px) clamp(8px, 2vw, 24px);
   flex-direction: row;
   color: var(--color-text-main);
   background: var(--glass-bg);
@@ -163,7 +170,7 @@ header {
   font-weight: 600;
   letter-spacing: 1px;
   color: var(--color-text-main);
-  font-size: clamp(0.9rem, 1.2vw, 1.2rem);
+  font-size: clamp(0.6rem, 1vw, 1.1rem);
   text-decoration: none;
   text-transform: uppercase;
   transition: color var(--trans-smooth), text-shadow var(--trans-smooth);
@@ -183,6 +190,16 @@ header {
   display: flex;
   justify-content: flex-end;
   margin-right: 1vh;
+}
+
+.logo img {
+  width: clamp(80px, 12vw, 185px);
+  height: auto;
+  transition: transform var(--trans-smooth);
+}
+
+.logo img:hover {
+  transform: scale(1.05);
 }
 
 /*Word effect------------------------------------------------------------------------------------*/
@@ -294,7 +311,7 @@ header {
   /* soft glow */
   text-shadow: 0 6px 18px rgba(255, 200, 255, 0.35), 0 2px 6px rgba(0, 0, 0, 0.15);
 
-  margin-top: 0.5rem;
+  margin: 0;
   transition: transform var(--trans-bounce), text-shadow var(--trans-smooth);
 }
 
@@ -316,7 +333,7 @@ header {
   color: transparent;
 
   text-shadow: 0 6px 18px rgba(255, 200, 255, 0.35), 0 2px 6px rgba(0, 0, 0, 0.15);
-  margin-top: 3rem;
+  margin-top: 2vh;
   transition: transform 1s ease, text-shadow 0.6s ease;
 }
 
@@ -338,7 +355,7 @@ header {
   color: transparent;
 
   text-shadow: 0 6px 18px rgba(255, 200, 255, 0.35), 0 2px 6px rgba(0, 0, 0, 0.15);
-  margin-top: 3rem;
+  margin-top: 1vh;
   transition: transform 1s ease, text-shadow 0.6s ease;
 }
 
@@ -355,9 +372,9 @@ header {
 
 
 .wrd-effect {
-  margin-left: 10px;
+  margin: 0 clamp(2px, 0.5vw, 10px);
   /* FLUID TYPOGRAPHY: Scales between 1.5rem and 8rem based on viewport width */
-  font-size: clamp(1.5rem, 9vw, 8rem);
+  font-size: clamp(2rem, 9vw, 8.5rem);
   color: white;
 }
 
@@ -446,16 +463,12 @@ header {
 .lastwrd-effect {
   color: white;
   display: block;
-  margin: 0 auto;
   text-align: center;
-  font-size: 2em;
 }
 
 .date {
   color: white;
-  margin: 0 auto;
   text-align: center;
-  margin-top: 2px;
 }
 
 /*CLOUDS SECTION*/
@@ -975,8 +988,22 @@ header {
   z-index: 2;
   margin-top: -1px;
   /* Prevent hairline gap */
+  margin-top: -1px;
+  /* Prevent hairline gap */
   margin-bottom: -1px;
   /* Prevent hairline gap */
+}
+
+.sponsor-footer-transition {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to bottom, #0a0a23, transparent);
+  z-index: 5;
+  margin-top: -1px;
+  margin-bottom: -150px;
+  /* Overlap with footer */
+  pointer-events: none;
 }
 
 
@@ -1008,11 +1035,13 @@ header {
 }
 
 .kean-message {
-  position: relative;
+  position: absolute;
+  top: 18%;
+  right: 8%;
   z-index: 3;
   color: white;
-  font-family: 'DynaPuff', cursive;
-  font-size: 1.5rem;
+  font-family: sans-serif;
+  font-size: clamp(0.9rem, 1.5vw, 1.6rem);
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   margin: 0;
 }
@@ -1102,7 +1131,7 @@ header {
   min-height: 120vh;
   background-color: #7BAADA;
   /* Matching Tracks section */
-  padding: 5vh 5vw 25vh 5vw;
+  padding: 5vh 5vw 45vh 5vw;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -1113,21 +1142,19 @@ header {
 
 .grass-decoration {
   position: absolute;
-  bottom: -25vh;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: auto;
   z-index: 2;
   pointer-events: none;
-
-  min-height: 100px;
 }
 
 .cougar-decoration {
   position: absolute;
-  bottom: 15px;
-  /* Raised slightly from the bottom */
-  left: 2vw;
+  bottom: 27vh;
+  /* Adjust based on full grass height */
+  left: 2.5vw;
   width: 24vw;
   /* Increased from 18vw */
   max-width: 400px;
@@ -1158,6 +1185,7 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 3rem;
+  margin-bottom: 20vh;
 }
 
 /* Day Selector */
