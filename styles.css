@@ -1041,7 +1041,7 @@ header {
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
-  border-radius: 50%;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
