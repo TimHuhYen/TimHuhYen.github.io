@@ -1353,3 +1353,12 @@ header {
   text-align: center;
   opacity: 0.8;
 }
+
+.discord-link {
+  color: var(--color-text-main);
+  text-decoration: none;
+}
+
+.discord-link:hover {
+  text-decoration: underline;
+}
