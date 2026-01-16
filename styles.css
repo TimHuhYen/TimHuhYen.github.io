@@ -1088,8 +1088,7 @@ header {
   position: relative;
   width: 100%;
   min-height: 120vh;
-  background-color: #7BAADA;
-  /* Matching Tracks section */
+  background: url('img/scheduleDream.JPEG') no-repeat center center/cover;
   padding: 5vh 5vw 45vh 5vw;
   box-sizing: border-box;
   display: flex;
@@ -1145,6 +1144,8 @@ header {
   align-items: center;
   gap: 3rem;
   margin-bottom: 30vh;
+  position: relative;
+  z-index: 3;
   /* Increased spacing above the cougar image */
 }
 
