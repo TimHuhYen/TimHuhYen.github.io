@@ -246,4 +246,19 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log("Item active state:", isActive);
     });
   });
+
+  // TRACKS Card Logic
+  const trackCards = document.querySelectorAll('.card-container');
+  trackCards.forEach(card => {
+    card.addEventListener('click', () => {
+      // Close others
+      trackCards.forEach(c => {
+        if (c !== card) {
+          c.classList.remove('active');
+        }
+      });
+      // Toggle current
+      card.classList.toggle('active');
+    });
+  });
 });

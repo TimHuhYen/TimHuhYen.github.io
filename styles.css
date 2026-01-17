@@ -511,6 +511,19 @@ header {
 
 /*END OF CLOUDS SECTION*/
 
+.dream-apply-blur {
+  position: relative;
+  width: 100%;
+  height: 8vh;
+  background: white;
+  filter: blur(40px);
+  z-index: 10;
+  margin-top: -4vh;
+  margin-bottom: -4vh;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
 /*APPLY SECTION*/
 
 .apply-section {
@@ -643,21 +656,37 @@ header {
 
 /*START OF TRACK SECTION*/
 
+/*START OF TRACK SECTION*/
+
 .track-section {
   position: relative;
   width: 100%;
-  height: 150vh;
+  min-height: 120vh;
+  /* Increased min-height to allow breathing room */
   background-color: #7BAADA;
   overflow: hidden;
+  /* Restore hidden to prevent horizontal scrollbars and weird image cuts */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 25vh;
+  /* Push content down safely */
+  padding-bottom: 10vh;
+  box-sizing: border-box;
 }
 
 .objCliff {
   position: absolute;
-  top: 20vh;
-  left: 0;
-  max-width: 40vw;
+  top: 25vh;
+  /* Adjusted position */
+  left: -5vw;
+  /* Pull slightly left to hide hard edge if any */
+  width: 45vw;
+  /* Slightly larger */
+  max-width: 600px;
   height: auto;
-  z-index: 3;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .objCloud {
@@ -666,56 +695,93 @@ header {
   right: 5vw;
   max-width: 25vw;
   height: auto;
-  z-index: 4;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .tracks-text {
   position: absolute;
-  top: 10vh;
+  top: 8vh;
   left: 50%;
   transform: translateX(-50%);
   font-family: 'DynaPuff', sans-serif;
-  font-size: 5vw;
+  font-size: clamp(3rem, 6vw, 6rem);
   color: white;
   text-align: center;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+  z-index: 5;
+  width: 100%;
 }
 
 .allFourcards {
-  position: absolute;
-  top: 60vh;
-  left: 30vw;
-  display: grid;
-  grid-template-columns: repeat(2, 18vw);
-  gap: 4vw;
-  justify-items: center;
-  align-items: center;
-}
-
-.card-container {
-  width: 15vw;
-  height: 15vw;
-  border-radius: 10px;
-  z-index: 5;
   position: relative;
+  width: auto;
+  max-width: 90vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* 2x2 Grid Layout */
+  gap: 4rem;
+  /* Spacing between grid items */
+  justify-items: center;
+  align-items: start;
+  z-index: 10;
 }
 
-.card-container::before {
-  content: "";
-  z-index: -1;
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(-45deg, rgb(145, 34, 140) 0%, #00dbde 100%);
-  transform: translate3d(0, 0, 0) scale(0.95);
-  filter: blur(20px);
+@media (max-width: 768px) {
+  .allFourcards {
+    grid-template-columns: 1fr;
+    /* 1 Column for Mobile */
+    gap: 3rem;
+  }
 }
 
+/* Update card container to handle vertical layout of Title + Card */
+.card-container {
+  width: 16vw;
+  /* Slightly smaller as requested */
+  min-width: 240px;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  z-index: 10;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.card-title {
+  font-family: 'DynaPuff', sans-serif;
+  font-size: clamp(1.2rem, 1.5vw, 1.8rem);
+  /* Responsive text */
+  color: white;
+  text-align: center;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  min-height: 3.5rem;
+  /* Sufficient space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  line-height: 1.2;
+}
+
+
+/* Wrapper for the card itself */
 .card {
   width: 100%;
-  height: 100%;
-  border-radius: inherit;
+  aspect-ratio: 1/1;
+  border-radius: 20px;
+  /* Softer radius */
   overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  background: #fff;
+  /* fallback */
 }
+
 
 .card .img-content {
   width: 100%;
@@ -724,13 +790,15 @@ header {
   align-items: center;
   justify-content: center;
   background: linear-gradient(-45deg, red 0%, #863115 100%);
-  transition: scale 0.6s, rotate 0.6s, filter 1s;
+  transition: all 0.4s ease;
 }
 
 .card .img-content img {
-  width: 150px;
-  height: 150px;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  width: 60%;
+  height: auto;
+  object-fit: contain;
+  /* Ensure image isn't cropped weirdly */
+  transition: all 0.4s ease;
 }
 
 .card .content {
@@ -740,48 +808,48 @@ header {
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: 1em;
-  color: #ffffff;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
-  padding: 5%;
+  text-align: center;
+  padding: 1rem;
+  /* Padding for text */
   box-sizing: border-box;
-  line-height: 1.2;
-  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.8);
+  /* Darker overlay */
+  color: white;
   opacity: 0;
+  transition: opacity 0.3s ease;
   pointer-events: none;
-  transform: translateY(50px);
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-  overflow: hidden;
-}
-
-.card .content .heading {
-  font-size: 1.5vw;
-  font-weight: 700;
-  line-height: 1.2;
-  font-family: 'Dynapuff';
 }
 
 .card .content p {
-  font-size: 1vw;
+  font-family: 'DynaPuff', sans-serif;
+  font-size: clamp(0.9rem, 1.1vw, 1.2rem);
+  /* Dynamic text size */
   line-height: 1.4;
-  font-weight: 700;
-  font-family: 'Dynapuff';
 }
 
-.card:hover .content {
+/* Interactions */
+
+/* Hover: Darken image */
+.card-container:hover .card .img-content {
+  filter: brightness(0.7);
+  transform: scale(1.05);
+  /* Slight zoom */
+}
+
+/* Active (Click): Show details */
+.card-container.active .card .content {
   opacity: 1;
-  transform: translateY(0);
 }
 
-.card:hover .img-content {
-  scale: 1.5;
-  rotate: 15deg;
-  filter: blur(7px);
+.card-container.active .card .img-content {
+  filter: brightness(0.4) blur(3px);
+  /* Darker and blurred */
 }
 
-/* Healthcare (existing) */
+/* Specific colors */
+/* Healthcare */
 .card-container.healthcare .img-content {
   background: linear-gradient(-45deg, red 0%, #863115 100%);
 }
@@ -1036,6 +1104,7 @@ header {
 }
 
 .sponsor-item {
+  text-decoration: none;
   width: 150px;
   height: 150px;
   background: var(--glass-bg);
@@ -1058,6 +1127,7 @@ header {
 }
 
 .sponsor-item:hover {
+  text-decoration: none;
   transform: scale(1.15);
   background: var(--glass-bg);
   box-shadow: var(--shadow-glow);
@@ -1485,37 +1555,51 @@ header {
   font-family: 'DynaPuff', cursive;
   color: white;
   font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 5px 15px rgba(139, 44, 255, 0.4), 0 2px 4px rgba(0, 0, 0, 0.7);
   line-height: 1;
+  animation: floatSpace 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes floatSpace {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 .dream-title {
-  font-size: 15vw;
+  font-size: 18vw;
   /* Responsive large size */
 }
 
 .dream-subtitle {
-  font-size: 8vw;
+  font-size: 10vw;
   /* Responsive subtitle size */
 }
 
 @media (min-width: 1200px) {
   .dream-title {
-    font-size: 12rem;
+    font-size: 14rem;
   }
 
   .dream-subtitle {
-    font-size: 6rem;
+    font-size: 8rem;
   }
 }
 
 @media (max-width: 768px) {
   .dream-title {
-    font-size: 20vw;
+    font-size: 22vw;
   }
 
   .dream-subtitle {
-    font-size: 10vw;
+    font-size: 12vw;
   }
 }
 
