@@ -562,8 +562,8 @@ header {
   position: relative;
   z-index: 10;
   display: inline-block;
-  padding: 20px 60px;
-  font-size: 2rem;
+  padding: clamp(15px, 2.5vw, 25px) clamp(40px, 5vw, 80px);
+  font-size: clamp(1.2rem, 3.5vw, 2.5rem);
   font-weight: 700;
   color: white;
   background: var(--grad-primary);
@@ -608,7 +608,7 @@ header {
   margin-top: 30px;
   font-family: 'DynaPuff', cursive;
   font-weight: 600;
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 3vw, 2.2rem);
   color: white;
   text-align: center;
   letter-spacing: 1px;
@@ -1088,7 +1088,15 @@ header {
   position: relative;
   width: 100%;
   min-height: 120vh;
-  background: url('img/updatedScheduleDream.JPEG') no-repeat center center/cover;
+  /* Dark background color matches the bottom of the gradient/image to fill empty space on desktop */
+  background-color: #0a0a23;
+  background-image: url('img/updatedScheduleDream.JPEG');
+  background-repeat: no-repeat;
+  /* Desktop: 100% width visible (no horizontal cropping), aligned top. 
+     May show background color at bottom if content is tall. */
+  background-position: top center;
+  background-size: 100% auto;
+
   padding: 5vh 5vw 45vh 5vw;
   box-sizing: border-box;
   display: flex;
@@ -1096,6 +1104,15 @@ header {
   align-items: center;
   color: white;
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .schedule-section {
+    /* Mobile: Cover full height (vertical cropping allowed), centered */
+    background-size: cover;
+    background-position: center center;
+    /* Adjust padding if needed, but keeping consistent for now */
+  }
 }
 
 .grass-decoration {
@@ -1395,6 +1412,9 @@ header {
     margin-left: -5vw;
     /* Break container constraints */
     margin-right: -5vw;
+    position: relative;
+    z-index: 10;
+    /* Ensure it stays on top */
   }
 
   .timeline-dots {
